@@ -1,0 +1,27 @@
+16/04/2026
+First i have created virtual environment containing project related libraries
+
+virtual environment has created
+python -m venv my_jet_env
+
+.gitignore file: my_jet_env added
+
+virtual environment has started:
+venv\Scripts\activate
+
+have installed initial libraries:
+python -m pip install pandas numpy opencv-python
+
+(this file should be created at the end so all the libraries will be listed in the file with their versions)requirements.txt file is created to save requirements of this project
+pip freeze > requirements.txt
+
+new file fighter_jet.ipynb in which first image of the shape (50,50,3) has uploaded to test
+(crossOver_image.jpg)
+
+collected the data of fighter_jet images and their details in 'data' folder
+
+virtual environment has ended:
+venv\Scripts\deactivate
+
+Date: 17/06/2026
+
