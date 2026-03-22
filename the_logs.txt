@@ -25,3 +25,11 @@ venv\Scripts\deactivate
 
 Date: 17/06/2026
 
+We are using CNN model here. (Convolutional Neural Network)
+--> CNN requries fixed sized inputs
+--> CNN works in matrix which we call 'tensor'
+
+Step 1: Image resize -
+
+We will use tensorflow to resize the image, It will directly resize the image during training without manual resize approach and it is memory efficient
+

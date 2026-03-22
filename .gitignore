@@ -1,1 +1,6 @@
 my_jet_env
+fighter_jet_model.keras
+Junk_folder
+best_model_phase1.h5
+best_model_phase2.h5
+fighter_jet_classifier.h5
