@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AEROVISION — Capabilities</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../static/capabilities.css">
+</head>
+<body>
+
+<!-- <div class="grid-bg"></div>
+<div class="hud-corner tl"></div>
+<div class="hud-corner tr"></div>
+<div class="hud-corner bl"></div>
+<div class="hud-corner br"></div> -->
+{% include 'Hud.html' %}
+
+<!-- NAV -->
+<!-- <nav>
+  <a class="nav-logo" href="/">
+    <span class="nav-title">AERO-VISION</span>
+  </a>
+  <div class="nav-links">
+    <a href="/">OVERVIEW</a>
+    <a href="capabilities.html" class="active">CAPABILITIES</a>
+    <a href="#">MODULES</a>
+    <a href="#">DOCS</a>
+  </div>
+  <div class="nav-badge">v1.0.0</div>
+</nav> -->
+
+{% include 'Navbar.html' %}
+
+<!-- PAGE BANNER -->
+<div class="page-banner">
+  <div class="breadcrumb">AEROVISION / <span>CAPABILITIES</span></div>
+  <h1 class="page-title">MODEL <em>CAPABILITIES</em></h1>
+  <p class="page-sub">// FIGHTER JET CLASSIFIER | EfficientNetV2S | TECHNICAL CAPABILITIES</p>
+</div>
+
+<!-- ═══════════ SECTION 1 — MODEL INFO ═══════════ -->
+<section class="section" id="model">
+  <div class="sec-tag">// 01 — MODEL ARCHITECTURE</div>
+  <h2 class="sec-title">THE <span>CLASSIFIER</span></h2>
+
+  <div class="model-grid">
+    <div class="model-cell">
+      <div class="model-cell-label">MODEL FILE</div>
+      <div class="model-cell-val">fighter_jet_classifier.h5</div>
+      <div class="model-cell-sub">Keras HDF5 format | TensorFlow 2.x compatible</div>
+    </div>
+    <div class="model-cell green">
+      <div class="model-cell-label">BASE ARCHITECTURE</div>
+      <div class="model-cell-val">EfficientNetV2S</div>
+      <div class="model-cell-sub">Pre-trained on ImageNet | Fine-tuned on fighter jet dataset</div>
+    </div>
+    <div class="model-cell">
+      <div class="model-cell-label">TRAINING STRATEGY</div>
+      <div class="model-cell-val">Two-Phase Transfer Learning</div>
+      <div class="model-cell-sub">Phase 1: Frozen backbone (20 epochs) → Phase 2: Full fine-tuning (14+ epochs)</div>
+    </div>
+    <div class="model-cell amber">
+      <div class="model-cell-label">INPUT SPECIFICATION</div>
+      <div class="model-cell-val">384 × 384 × 3</div>
+      <div class="model-cell-sub">RGB images, normalised to [0, 1] | auto-resized at inference</div>
+    </div>
+    <div class="model-cell">
+      <div class="model-cell-label">OUTPUT CLASSES</div>
+      <div class="model-cell-val">5 Aircraft Types</div>
+      <div class="model-cell-sub">B2 | F22 | J20 | Rafale | Su57 — Softmax probability over each class</div>
+    </div>
+    <div class="model-cell green">
+      <div class="model-cell-label">INFERENCE BACKEND</div>
+      <div class="model-cell-val">Flask + TensorFlow</div>
+      <div class="model-cell-sub">Python REST API | /predict endpoint | &lt;200ms average latency</div>
+    </div>
+    <div class="model-cell full">
+      <div class="model-cell-label">TRAINING AUGMENTATION PIPELINE</div>
+      <div class="model-cell-val" style="font-size:0.82rem; letter-spacing:1px;">RandomFlip | RandomRotation | RandomZoom | RandomContrast | RandomBrightness</div>
+      <div class="model-cell-sub" style="margin-top:8px;">Heavy augmentation applied to combat overfitting on the limited per-class dataset (around 100 images/class). Augmented data seen only by training set — validation/test sets use clean images.</div>
+    </div>
+  </div>
+
+  <!-- Why EfficientNetV2S -->
+  <div style="margin-top: 40px;">
+    <div class="sec-tag" style="margin-bottom:12px;">// WHY THIS APPROACH?</div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">REASON 01</div>
+        <div class="why-title">TRANSFER LEARNING</div>
+        <div class="why-desc">Training a CNN from scratch on ~500 images would overfit immediately. EfficientNetV2S brings ImageNet-pretrained feature extractors — edges, textures, shapes — that transfer perfectly to aircraft silhouettes, giving a strong starting point with minimal data.</div>
+      </div>
+      <div class="why-card g">
+        <div class="why-num">REASON 02</div>
+        <div class="why-title">EFFICIENTNETV2S CHOICE</div>
+        <div class="why-desc">EfficientNetV2S achieves state-of-the-art accuracy-to-parameter ratio. Compared to ResNet50 or VGG16, it is 3–4× more parameter-efficient while matching or exceeding accuracy. Its 384×384 native resolution captures fine structural details like wing sweep and tail configuration — critical for jet classification.</div>
+      </div>
+      <div class="why-card a">
+        <div class="why-num">REASON 03</div>
+        <div class="why-title">TWO-PHASE FINE-TUNING</div>
+        <div class="why-desc">Phase 1 trains only the classification head while keeping ImageNet weights frozen — rapidly learning jet-specific patterns without corrupting pretrained features. Phase 2 unfreezes the full network at a low learning rate, allowing subtle domain adaptation. This prevents catastrophic forgetting and leads to better generalisation.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SECTION 2 — TARGET AIRCRAFT ═══════════ -->
+<section class="section" id="aircraft">
+  <div class="sec-tag">// 02 — TARGET AIRCRAFT DATABASE</div>
+  <h2 class="sec-title">CLASSIFIED <span>AIRFRAMES</span></h2>
+
+  <div class="jets-grid">
+
+    <!-- B2 Spirit -->
+    <div class="jet-card">
+      <div class="jet-img-placeholder">
+        <img src="/static/Jets_Images/B2.jpg" alt="B2 Spirit"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="jet-placeholder-inner" style="display:none;">
+          <svg class="jet-placeholder-icon" viewBox="0 0 48 48" width="36" height="36" fill="none">
+            <path d="M24 6 L26.5 20 L26 38 L24 42 L22 38 L21.5 20 Z" fill="#00f5ff"/>
+            <path d="M24 14 L38 30 L34 31 L26 22 Z" fill="#00f5ff"/>
+            <path d="M24 14 L10 30 L14 31 L22 22 Z" fill="#00f5ff"/>
+          </svg>
+          <div class="jet-placeholder-txt">B2 | IMAGE</div>
+        </div>
+        <div class="jet-scan"></div>
+        <div class="jet-bracket tl"></div>
+        <div class="jet-bracket tr"></div>
+        <div class="jet-bracket bl"></div>
+        <div class="jet-bracket br"></div>
+      </div>
+      <div class="jet-info">
+        <div class="jet-id">TARGET : 01</div>
+        <div class="jet-name">B-2 SPIRIT</div>
+        <div class="jet-origin">USA | NORTHROP GRUMMAN</div>
+      </div>
+    </div>
+
+    <!-- F22 Raptor -->
+    <div class="jet-card">
+      <div class="jet-img-placeholder">
+        <img src="/static/Jets_Images/F22.jpg" alt="F22 Raptor"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="jet-placeholder-inner" style="display:none;">
+          <svg class="jet-placeholder-icon" viewBox="0 0 48 48" width="36" height="36" fill="none">
+            <path d="M24 6 L26.5 20 L26 38 L24 42 L22 38 L21.5 20 Z" fill="#00f5ff"/>
+            <path d="M24 14 L38 30 L34 31 L26 22 Z" fill="#00f5ff"/>
+            <path d="M24 14 L10 30 L14 31 L22 22 Z" fill="#00f5ff"/>
+          </svg>
+          <div class="jet-placeholder-txt">F22 | IMAGE</div>
+        </div>
+        <div class="jet-scan"></div>
+        <div class="jet-bracket tl"></div><div class="jet-bracket tr"></div>
+        <div class="jet-bracket bl"></div><div class="jet-bracket br"></div>
+      </div>
+      <div class="jet-info">
+        <div class="jet-id">TARGET : 02</div>
+        <div class="jet-name">F-22 RAPTOR</div>
+        <div class="jet-origin">USA | LOCKHEED MARTIN</div>
+      </div>
+    </div>
+
+    <!-- J20 -->
+    <div class="jet-card">
+      <div class="jet-img-placeholder">
+        <img src="/static/Jets_Images/J20.jpg" alt="J20"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="jet-placeholder-inner" style="display:none;">
+          <svg class="jet-placeholder-icon" viewBox="0 0 48 48" width="36" height="36" fill="none">
+            <path d="M24 6 L26.5 20 L26 38 L24 42 L22 38 L21.5 20 Z" fill="#00f5ff"/>
+            <path d="M24 14 L38 30 L34 31 L26 22 Z" fill="#00f5ff"/>
+            <path d="M24 14 L10 30 L14 31 L22 22 Z" fill="#00f5ff"/>
+          </svg>
+          <div class="jet-placeholder-txt">J20 | IMAGE</div>
+        </div>
+        <div class="jet-scan"></div>
+        <div class="jet-bracket tl"></div><div class="jet-bracket tr"></div>
+        <div class="jet-bracket bl"></div><div class="jet-bracket br"></div>
+      </div>
+      <div class="jet-info">
+        <div class="jet-id">TARGET : 03</div>
+        <div class="jet-name">J-20 MIGHTY DRAGON</div>
+        <div class="jet-origin">CHINA | CHENGDU AIRCRAFT</div>
+      </div>
+    </div>
+
+    <!-- Rafale -->
+    <div class="jet-card">
+      <div class="jet-img-placeholder">
+        <img src="/static/Jets_Images/Rafale.jpg" alt="Rafale"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="jet-placeholder-inner" style="display:none;">
+          <svg class="jet-placeholder-icon" viewBox="0 0 48 48" width="36" height="36" fill="none">
+            <path d="M24 6 L26.5 20 L26 38 L24 42 L22 38 L21.5 20 Z" fill="#00f5ff"/>
+            <path d="M24 14 L38 30 L34 31 L26 22 Z" fill="#00f5ff"/>
+            <path d="M24 14 L10 30 L14 31 L22 22 Z" fill="#00f5ff"/>
+          </svg>
+          <div class="jet-placeholder-txt">RAFALE | IMAGE</div>
+        </div>
+        <div class="jet-scan"></div>
+        <div class="jet-bracket tl"></div><div class="jet-bracket tr"></div>
+        <div class="jet-bracket bl"></div><div class="jet-bracket br"></div>
+      </div>
+      <div class="jet-info">
+        <div class="jet-id">TARGET : 04</div>
+        <div class="jet-name">RAFALE</div>
+        <div class="jet-origin">FRANCE | DASSAULT AVIATION</div>
+      </div>
+    </div>
+
+    <!-- Su57 -->
+    <div class="jet-card">
+      <div class="jet-img-placeholder">
+        <img src="/static/Jets_Images/SuS7.jpg" alt="Su57"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="jet-placeholder-inner" style="display:none;">
+          <svg class="jet-placeholder-icon" viewBox="0 0 48 48" width="36" height="36" fill="none">
+            <path d="M24 6 L26.5 20 L26 38 L24 42 L22 38 L21.5 20 Z" fill="#00f5ff"/>
+            <path d="M24 14 L38 30 L34 31 L26 22 Z" fill="#00f5ff"/>
+            <path d="M24 14 L10 30 L14 31 L22 22 Z" fill="#00f5ff"/>
+          </svg>
+          <div class="jet-placeholder-txt">SU57 | IMAGE</div>
+        </div>
+        <div class="jet-scan"></div>
+        <div class="jet-bracket tl"></div><div class="jet-bracket tr"></div>
+        <div class="jet-bracket bl"></div><div class="jet-bracket br"></div>
+      </div>
+      <div class="jet-info">
+        <div class="jet-id">TARGET : 05</div>
+        <div class="jet-name">SU-57 FELON</div>
+        <div class="jet-origin">RUSSIA | SUKHOI</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:14px; font-family:'Share Tech Mono',monospace; font-size:0.6rem; color:var(--dim); letter-spacing:2px; text-align:right;">
+    ◈ PLACE PHOTOS IN jets/ FOLDER AS: b2.jpg · f22.jpg · j20.jpg · rafale.jpg · su57.jpg
+  </div>
+</section>
+
+<!-- ═══════════ SECTION 3 — PERFORMANCE ═══════════ -->
+<section class="section" id="performance">
+  <div class="sec-tag">// 03 — MODEL PERFORMANCE REPORT</div>
+  <h2 class="sec-title">ACCURACY &amp; <span>ANALYSIS</span></h2>
+
+  <!-- Key metrics -->
+  <div class="metrics-row">
+    <div class="metric-box">
+      <span class="metric-val">75%</span>
+      <span class="metric-key">VALIDATION ACCURACY</span>
+    </div>
+    <div class="metric-box">
+      <span class="metric-val g">100%</span>
+      <span class="metric-key">RAFALE PRECISION</span>
+    </div>
+    <div class="metric-box">
+      <span class="metric-val">~0.46</span>
+      <span class="metric-key">FINAL TRAIN LOSS</span>
+    </div>
+    <div class="metric-box">
+      <span class="metric-val a">55%</span>
+      <span class="metric-key">SU-57 RECALL (HARDEST)</span>
+    </div>
+  </div>
+
+  <!-- Per-class accuracy from confusion matrix -->
+  <!-- <div style="margin-bottom:16px;">
+    <div class="sec-tag" style="margin-bottom:12px;">// PER-CLASS RECALL (from confusion matrix test set)</div>
+  </div>
+  <div class="class-bars">
+    <div class="class-row">
+      <div class="class-lbl">RAFALE</div>
+      <div class="class-track"><div class="class-fill" style="width:90%; background:linear-gradient(90deg,var(--green),#00d4aa);"></div></div>
+      <div class="class-pct" style="color:var(--green);">90%</div>
+    </div>
+    <div class="class-row">
+      <div class="class-lbl">F-22</div>
+      <div class="class-track"><div class="class-fill" style="width:85%;"></div></div>
+      <div class="class-pct">85%</div>
+    </div>
+    <div class="class-row">
+      <div class="class-lbl">B-2</div>
+      <div class="class-track"><div class="class-fill" style="width:75%;"></div></div>
+      <div class="class-pct">75%</div>
+    </div>
+    <div class="class-row">
+      <div class="class-lbl">J-20</div>
+      <div class="class-track"><div class="class-fill" style="width:70%;"></div></div>
+      <div class="class-pct">70%</div>
+    </div>
+    <div class="class-row">
+      <div class="class-lbl">SU-57</div>
+      <div class="class-track"><div class="class-fill" style="width:55%; background:linear-gradient(90deg,var(--amber),var(--red));"></div></div>
+      <div class="class-pct" style="color:var(--amber);">55%</div>
+    </div>
+  </div> -->
+
+  <!-- CHARTS -->
+  <div class="sec-tag" style="margin-bottom:20px;">// TRAINING HISTORY — EfficientNetV2S</div>
+  <div class="chart-grid">
+    <div class="chart-wrap full">
+      <div class="chart-label">TRAINING ACCURACY &amp; LOSS — 33 EPOCHS (Phase 1: 1–20 · Phase 2: 21–33)</div>
+      <img src="/static/Images/training_history.png" alt="Training History — Accuracy and Loss curves"/>
+    </div>
+    <!-- <div class="chart-wrap full">
+      <div class="chart-label">CONFUSION MATRIX — TEST SET · 5 CLASSES</div>
+      <img src="/static/Images/confusion_matrix.png" alt="Confusion Matrix — Test Set"/>
+    </div> -->
+  </div>
+
+  <!-- OBSERVATIONS -->
+  <div class="sec-tag" style="margin-bottom:20px;">// OBSERVATIONS &amp; ANALYSIS</div>
+  <div class="obs-grid">
+
+    <div class="obs-card green-l">
+      <div class="obs-head">✔ TRAINING CONVERGENCE</div>
+      <div class="obs-body">
+        Training accuracy climbs steadily from <strong>~35%</strong> at epoch 1 to <strong>~93%</strong> by epoch 33, demonstrating the model is effectively learning discriminative features. The two-phase strategy is clearly visible — a smooth rise in Phase 1 (frozen backbone) followed by sharper gains post-epoch 20 as the full network fine-tunes.
+      </div>
+    </div>
+
+    <div class="obs-card amber-l">
+      <div class="obs-head">⚠ GENERALISATION GAP</div>
+      <div class="obs-body">
+        A persistent gap between train accuracy (<strong>~93%</strong>) and validation accuracy (<strong>~75%</strong>) indicates moderate overfitting. The validation curve plateaus after epoch 20, suggesting the model has saturated on available data. Expanding the dataset per class from ~100 to 300+ images would likely close this gap significantly.
+      </div>
+    </div>
+
+    <div class="obs-card green-l">
+      <div class="obs-head">✔ RAFALE — STRONGEST CLASS</div>
+      <div class="obs-body">
+        The Rafale achieves a perfect <strong>18/18 (100% recall)</strong> on the test set with zero false positives. This is likely due to the aircraft's distinctive canard-delta wing configuration being uniquely identifiable compared to the other 4 classes. It was never misclassified in either direction.
+      </div>
+    </div>
+
+    <div class="obs-card red-l">
+      <div class="obs-head">✗ SU-57 — WEAKEST CLASS</div>
+      <div class="obs-body">
+        The Su-57 achieved only <strong>11/20 (55% recall)</strong> — the weakest performance. <strong>6 of 20</strong> Su-57 images were incorrectly predicted as F-22, and 2 as Rafale. This is expected: the Su-57 and F-22 share similar twin-tail, large-delta-wing planforms. Visual similarity at certain angles causes the model to confuse the two.
+      </div>
+    </div>
+
+    <div class="obs-card amber-l">
+      <div class="obs-head">⚠ B-2 CONFUSION WITH F-22</div>
+      <div class="obs-body">
+        B-2 had <strong>4 misclassifications as F-22</strong> and 1 as Su-57. Given the B-2's radically different flying-wing profile, this may point to dataset issues — web-scraped images with similar background environments or perspective angles creating spurious correlations. Curating higher-quality, diverse-angle B-2 images should help.
+      </div>
+    </div>
+
+    <div class="obs-card">
+      <div class="obs-head">◈ LOSS CURVE BEHAVIOUR</div>
+      <div class="obs-body">
+        Training loss drops sharply from <strong>2.6 → 0.8</strong> within the first 15 epochs, then continues steadily to <strong>~0.46</strong>. Validation loss stabilises around <strong>1.0</strong> after epoch 10. The non-converging validation loss (holding at ~1.0 while training loss keeps falling) is the strongest signal of the generalisation gap — a larger dataset or stronger regularisation (L2, dropout) would help.
+      </div>
+    </div>
+
+    <div class="obs-card full green-l">
+      <div class="obs-head">◈ PHASE 2 FINE-TUNING IMPACT</div>
+      <div class="obs-body">
+        The dashed Phase 2 boundary at epoch 20 is clearly visible in both charts. Validation accuracy, which had been oscillating around <strong>70–76%</strong> in Phase 1, shows improved stability post epoch 20, settling around <strong>74–78%</strong>. The spike at epoch 21 (validation drops to ~62%) is a known fine-tuning artefact — the learning rate resets slightly destabilise the network before it recovers. This is expected behaviour and resolves within 2–3 epochs.
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Confusion matrix per-class table -->
+  <div style="margin-top: 48px;">
+    <div class="sec-tag" style="margin-bottom:16px;">// CONFUSION MATRIX BREAKDOWN</div>
+    <table class="conf-table">
+      <thead>
+        <tr>
+          <th>AIRCRAFT</th>
+          <th>CORRECT</th>
+          <th>TOTAL TEST</th>
+          <th>RECALL</th>
+          <th>MAIN CONFUSION</th>
+          <th>STATUS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--cyan); font-weight:600;">B-2 Spirit</td>
+          <td>15</td><td>20</td><td>75%</td>
+          <td>4 → F22, 1 → Su57</td>
+          <td><span class="badge badge-a">MODERATE</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--cyan); font-weight:600;">F-22 Raptor</td>
+          <td>17</td><td>20</td><td>85%</td>
+          <td>3 → Su57</td>
+          <td><span class="badge badge-g">GOOD</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--cyan); font-weight:600;">J-20</td>
+          <td>14</td><td>20</td><td>70%</td>
+          <td>3 → F22, 1 → Rafale, 2 → Su57</td>
+          <td><span class="badge badge-a">MODERATE</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--cyan); font-weight:600;">Rafale</td>
+          <td>18</td><td>20</td><td>90%</td>
+          <td>2 → F22</td>
+          <td><span class="badge badge-g">STRONG</span></td>
+        </tr>
+        <tr>
+          <td style="color:var(--cyan); font-weight:600;">Su-57 Felon</td>
+          <td>11</td><td>20</td><td>55%</td>
+          <td>6 → F22, 2 → Rafale, 1 → B2</td>
+          <td><span class="badge badge-r">WEAK</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+  {% include 'Footer.html' %}
+
+
+<!-- <footer>
+  <div class="footer-logo">AEROVISION</div>
+  <div class="footer-meta">
+    <div>BUILT BY <span style="color:var(--cyan)">UG</span> · VERSION 1.0.0</div>
+    <div>EfficientNetV2S · fighter_jet_classifier.h5</div>
+  </div>
+  <div class="footer-right">
+    <div style="color:var(--green)">● 5 CLASSES LOADED</div>
+    <div style="margin-top:4px;">MODEL OPERATIONAL</div>
+  </div>
+</footer> -->
+
+</body>
+</html>

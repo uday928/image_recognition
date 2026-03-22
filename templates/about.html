@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AEROVISION — About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/about.css">
+</head>
+<body>
+
+{% include 'Hud.html' %}
+<!-- NAV -->
+{% include 'Navbar.html' %}
+
+<!-- PAGE BANNER -->
+<div class="page-banner">
+  <div class="breadcrumb">AEROVISION / <span>ABOUT</span></div>
+  <h1 class="page-title">ABOUT <em>US</em></h1>
+  <p class="page-sub">// DEVELOPER | TECHNOLOGY | CONTACT</p>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 1 — DEVELOPER
+══════════════════════════════════════ -->
+<section class="section" id="developer">
+  <div class="sec-tag">// 01 — DEVELOPER PROFILE</div>
+  <h2 class="sec-title">COMPUTER <span>ENGINEER</span></h2>
+
+  <div class="dev-layout">
+
+    <!-- Avatar Card -->
+    <div>
+      <div class="avatar-card">
+        <div class="avatar-ring">
+          <div class="avatar-initials">UG</div>
+        </div>
+        <div class="dev-name">UDAY GANDHI</div>
+        <div class="dev-handle">AERO-VISION</div>
+        <div class="dev-status">
+          <span class="status-pulse"></span>
+          AVAILABLE FOR WORK
+        </div>
+        <div class="dev-tags">
+          <div class="dev-tag">B.Tech CE</div>
+          <div class="dev-tag g">Parul University</div>
+          <div class="dev-tag a">Data-Driven AI Enthusiast</div>
+          <div class="dev-tag p">AI | ML </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bio blocks -->
+    <div class="bio-wrap">
+
+      <div class="bio-block">
+        <div class="bio-label">// PROFILE</div>
+        <div class="bio-val">
+          I'm <strong>Uday Gandhi</strong>, a Data-driven AI enthusiast from <strong>Parul University</strong> with a deep passion for data-driven AI systems. I build end-to-end machine learning pipelines — from raw dataset curation to production-ready inference APIs — with a focus on computer vision and deep learning.
+        </div>
+      </div>
+
+      <div class="edu-row">
+        <div class="edu-icon">B.Tech</div>
+        <div class="edu-info">
+          <div class="edu-degree">B.TECH — COMPUTER ENGINEERING</div>
+          <div class="edu-uni">Parul University | Vadodara, Gujarat</div>
+          <div class="edu-meta">Computer Engineering | AI/ML Practitioner</div>
+        </div>
+        <div class="edu-badge">GRADUATED</div>
+      </div>
+
+      <div class="bio-block">
+        <div class="bio-label">// WHAT I BUILD</div>
+        <div class="bio-val">
+          AEROVISION started as a personal project to push the boundaries of image classification on domain-specific, limited datasets. The challenge: identify 5 visually similar fifth-generation fighter jets with high accuracy using only ~100 images per class. The result is a production Flask API backed by a fine-tuned <strong>EfficientNetV2S</strong> model, wrapped in a full-stack HUD-style web interface.
+        </div>
+      </div>
+
+      <!-- <div class="bio-block">
+        <div class="bio-label">// INTERESTS &amp; FOCUS AREAS</div>
+        <div class="bio-val" style="margin-bottom:14px;">Currently focused on applied deep learning, transfer learning, and building AI-powered interfaces that are both technically rigorous and visually compelling.</div>
+        <div class="interests-row">
+          <span class="interest-chip">Computer Vision</span>
+          <span class="interest-chip g">Transfer Learning</span>
+          <span class="interest-chip">Image Classification</span>
+          <span class="interest-chip a">Flask APIs</span>
+          <span class="interest-chip p">Neural Networks</span>
+          <span class="interest-chip g">Data Augmentation</span>
+          <span class="interest-chip">EfficientNet</span>
+          <span class="interest-chip a">Python · TensorFlow</span>
+          <span class="interest-chip p">Frontend Engineering</span>
+        </div>
+      </div> -->
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 2 — TECH STACK
+══════════════════════════════════════ -->
+<section class="section" id="technology">
+  <div class="sec-tag">// 02 — TECHNOLOGY STACK</div>
+  <h2 class="sec-title">BUILT <span>WITH</span></h2>
+
+  <!-- Inference pipeline -->
+  <div style="margin-bottom: 32px;">
+    <div class="sec-tag" style="margin-bottom: 16px; font-size:0.58rem;">// INFERENCE PIPELINE</div>
+    <div class="pipeline">
+      <div class="pipe-node">
+        <div class="pipe-box">IMAGE INPUT</div>
+        <div class="pipe-lbl">JPG | PNG | WEBP</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 40 12" width="40" height="12" fill="none">
+          <line x1="0" y1="6" x2="32" y2="6" stroke="#00f5ff" stroke-width="1"/>
+          <path d="M30 2L38 6L30 10" stroke="#00f5ff" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="pipe-node">
+        <div class="pipe-box a">FLASK API</div>
+        <div class="pipe-lbl">predict endpoint</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 40 12" width="40" height="12" fill="none">
+          <line x1="0" y1="6" x2="32" y2="6" stroke="#00f5ff" stroke-width="1"/>
+          <path d="M30 2L38 6L30 10" stroke="#00f5ff" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="pipe-node">
+        <div class="pipe-box g">PREPROCESS</div>
+        <div class="pipe-lbl">384×384 | normalize</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 40 12" width="40" height="12" fill="none">
+          <line x1="0" y1="6" x2="32" y2="6" stroke="#00f5ff" stroke-width="1"/>
+          <path d="M30 2L38 6L30 10" stroke="#00f5ff" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="pipe-node">
+        <div class="pipe-box p">EFFICIENTNETV2S</div>
+        <div class="pipe-lbl">fighter_jet_classifier.h5</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 40 12" width="40" height="12" fill="none">
+          <line x1="0" y1="6" x2="32" y2="6" stroke="#00f5ff" stroke-width="1"/>
+          <path d="M30 2L38 6L30 10" stroke="#00f5ff" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="pipe-node">
+        <div class="pipe-box g">CLASSIFIED OUTPUT</div>
+        <div class="pipe-lbl">5-class probabilities</div>
+      </div>
+      <div class="pipe-arrow">
+        <svg viewBox="0 0 40 12" width="40" height="12" fill="none">
+          <line x1="0" y1="6" x2="32" y2="6" stroke="#00f5ff" stroke-width="1"/>
+          <path d="M30 2L38 6L30 10" stroke="#00f5ff" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="pipe-node">
+        <div class="pipe-box">JET INFORMARTION</div>
+        <div class="pipe-lbl">text and confidence bars</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stack cards -->
+  <div class="stack-grid">
+
+    <!-- Python -->
+    <div class="stack-card">
+      <div class="stack-layer">CORE LANGUAGE</div>
+      <div class="stack-name">PYTHON 3.10</div>
+      <div class="stack-desc">Primary development language. Used for model training, data pipeline, Flask API, and all backend logic.</div>
+    </div>
+
+    <!-- TensorFlow / Keras -->
+    <div class="stack-card">
+      <div class="stack-layer">DEEP LEARNING FRAMEWORK</div>
+      <div class="stack-name a">TENSORFLOW · KERAS</div>
+      <div class="stack-desc">Deep learning framework powering model training and inference. EfficientNetV2S loaded via <code style="color:var(--amber); font-size:0.75rem;">keras.applications</code>.</div>
+    </div>
+
+    <!-- EfficientNetV2S -->
+    <div class="stack-card">
+      <div class="stack-layer">MODEL ARCHITECTURE</div>
+      <div class="stack-name p">EFFICIENTNETV2S</div>
+      <div class="stack-desc">State-of-the-art CNN pre-trained on ImageNet. Fine-tuned via two-phase transfer learning. Native 384×384 input resolution for fine detail capture.</div>
+    </div>
+
+    <!-- Flask -->
+    <div class="stack-card">
+      <div class="stack-layer">WEB FRAMEWORK</div>
+      <div class="stack-name g">FLASK</div>
+      <div class="stack-desc">Lightweight Python web framework serving the REST API. Handles image upload at <code style="color:var(--green); font-size:0.75rem;">/predict</code> and jet info at <code style="color:var(--green); font-size:0.75rem;">/jet_info/&lt;name&gt;</code>.</div>
+    </div>
+
+    <!-- HTML/CSS/JS -->
+    <div class="stack-card">
+      <div class="stack-layer">FRONTEND</div>
+      <div class="stack-name">HTML | CSS | JS</div>
+      <div class="stack-desc">Pure vanilla frontend — zero frameworks. Custom HUD aesthetic built with CSS animations, SVG inline graphics, and ES6 JavaScript for API calls.</div>
+    </div>
+
+    <!-- Orbitron / Google Fonts -->
+    <div class="stack-card">
+      <div class="stack-layer">TYPOGRAPHY</div>
+      <div class="stack-name">ORBITRON · RAJDHANI</div>
+      <div class="stack-desc">Google Fonts pairing: Orbitron (900) for display headers and HUD labels. Rajdhani for body text. Share Tech Mono for terminal and data readouts.</div>
+    </div>
+
+    <!-- NumPy / Pillow -->
+    <div class="stack-card">
+      <div class="stack-layer">DATA PROCESSING</div>
+      <div class="stack-name">NUMPY · PILLOW</div>
+      <div class="stack-desc">NumPy for array operations and image normalisation. Pillow for server-side image decoding, resizing to 384×384, and format conversion before inference.</div>
+    </div>
+
+    <!-- Matplotlib / Seaborn -->
+    <div class="stack-card">
+      <div class="stack-layer">VISUALISATION</div>
+      <div class="stack-name g">MATPLOTLIB · SEABORN</div>
+      <div class="stack-desc">Used for training analysis: accuracy/loss curves across 33 epochs, and the confusion matrix heatmap over the 5-class test set.</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     SECTION 3 — CONTACT
+══════════════════════════════════════ -->
+<section class="section" id="contact">
+  <div class="sec-tag">// 03 — CONTACT</div>
+  <h2 class="sec-title">GET IN <span>TOUCH</span></h2>
+
+  <div class="contact-layout">
+
+    <!-- Form -->
+    <div>
+      <div class="contact-form" id="contact-form">
+        <div class="form-row">
+          <div class="field">
+            <label>// YOUR NAME</label>
+            <input type="text" id="f-name" placeholder="Enter your name" autocomplete="off"/>
+          </div>
+          <div class="field">
+            <label>// EMAIL ADDRESS</label>
+            <input type="email" id="f-email" placeholder="example@email.com" autocomplete="off"/>
+          </div>
+        </div>
+        <div class="field">
+          <label>// SUBJECT</label>
+          <input type="text" id="f-subject" placeholder="Project collaboration / Question / Feedback..." autocomplete="off"/>
+        </div>
+        <div class="field">
+          <label>// MESSAGE</label>
+          <textarea id="f-msg" placeholder="Write your message here..."></textarea>
+        </div>
+        <button class="submit-btn" onclick="handleSubmit()">SUBMIT</button>
+      </div>
+
+      <div id="form-success">
+        <span class="ok-icon">✔</span>
+        <p>MESSAGE SUBMITTED SUCCESSFULLY</p>
+        <p style="color:var(--dim); margin-top:8px; font-size:0.65rem; letter-spacing:1px;">Uday will respond within 24–48 hours.</p>
+      </div>
+    </div>
+
+    <!-- Contact info -->
+    <div class="contact-info">
+
+      <a class="contact-card" href="mailto:udaygandhi@example.com">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00f5ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M2 7 L12 13 L22 7"/>
+          </svg>
+        </div>
+        <div class="contact-card-info">
+          <div class="contact-card-label">// EMAIL</div>
+          <div class="contact-card-val">udaygandhi2811@gmail.com</div>
+          <div class="contact-card-sub">Preferred contact method</div>
+        </div>
+      </a>
+
+      <a class="contact-card" href="https://github.com/uday928" target="_blank">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#00ff9d" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </div>
+        <div class="contact-card-info">
+          <div class="contact-card-label">// GITHUB</div>
+          <div class="contact-card-val g">github.com/uday928</div>
+          <div class="contact-card-sub">Source code | Projects</div>
+        </div>
+      </a>
+
+      <a class="contact-card" href="https://linkedin.com/in/udaygandhi-511165275" target="_blank">
+        <div class="contact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffb830" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+            <rect x="2" y="9" width="4" height="12"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </div>
+        <div class="contact-card-info">
+          <div class="contact-card-label">// LINKEDIN</div>
+          <div class="contact-card-val a">linkedin.com/in/udaygandhi</div>
+          <div class="contact-card-sub">Professional profile</div>
+        </div>
+      </a>
+
+      <div class="avail-block">
+        <div class="avail-head">
+          <span class="avail-dot"></span>
+          OPEN TO OPPORTUNITIES
+        </div>
+        <div class="avail-text">
+          Currently available for Jobs, research collaborations, and project work in AI/ML and Data science. Based in Gujarat, India.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+{% include 'Footer.html' %}
+
+<script>
+  function handleSubmit() {
+    const name    = document.getElementById('f-name').value.trim();
+    const email   = document.getElementById('f-email').value.trim();
+    const subject = document.getElementById('f-subject').value.trim();
+    const msg     = document.getElementById('f-msg').value.trim();
+
+    if (!name || !email || !msg) {
+      // Highlight empty fields
+      [['f-name', name], ['f-email', email], ['f-msg', msg]].forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (!val) {
+          el.style.borderColor = 'rgba(255,45,85,0.6)';
+          el.style.boxShadow = '0 0 0 1px rgba(255,45,85,0.15)';
+          el.addEventListener('input', () => {
+            el.style.borderColor = '';
+            el.style.boxShadow = '';
+          }, { once: true });
+        }
+      });
+      return;
+    }
+
+    // Build mailto link
+    const mailto = `mailto:udaygandhi2811@gmail.com?subject=${encodeURIComponent(subject || 'AEROVISION — Contact')}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${msg}`)}`;
+    window.location.href = mailto;
+
+    // Show success state
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>

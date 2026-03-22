@@ -4,6 +4,7 @@ import numpy as np
 from flask import Flask, request, jsonify, render_template
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
+from flask import send_from_directory
 
 app = Flask(__name__)
 
@@ -38,14 +39,23 @@ JET_INFO = load_jet_info()
 # ═══════════════════════════════════════════════════════════════
 @app.route('/')
 def index():
-    return render_template('index.html')  # Changed from 'index.html'
+    return render_template('index.html')
 
-# ═══════════════════════════════════════════════════════════════
-# NEW ROUTE: Added /classify route for the main classifier page
-# ═══════════════════════════════════════════════════════════════
 @app.route('/classify')
 def classify():
     return render_template('classify.html')
+
+@app.route('/capabilities')
+def capabilities():
+    return render_template('capabilities.html')
+
+@app.route('/about-us')
+def about():
+    return render_template('about.html')
+
+@app.route('/documents')
+def docs():
+    return render_template('docs.html')
 
 @app.route('/jet_info/<class_name>')
 def jet_info(class_name):
@@ -85,6 +95,18 @@ def predict():
         'confidence': round(confidence, 2),
         'all_scores': all_scores
     })
+
+# ═══════════════════════════════════════════════════════════════
+# Document save as pdf
+# ═══════════════════════════════════════════════════════════════
+
+@app.route('/download/<filename>')
+def download_file(filename):
+    return send_from_directory(
+        os.path.join(app.root_path, 'static', 'docs'),
+        filename,
+        as_attachment=True
+    )
 
 if __name__ == '__main__':
     os.makedirs('static', exist_ok=True)

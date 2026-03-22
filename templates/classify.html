@@ -10,6 +10,21 @@
 </head>
 <body>
 
+   <!-- BOOT SEQUENCE -->
+  <div id="boot-overlay" {% if already_booted %}style="display:none"{% endif %}>
+    <div class="boot-line dim" style="animation-delay:0.1s">AEROVISION OS — INITIALIZING...</div>
+    <div class="boot-line dim" style="animation-delay:0.5s">CHECKING SYSTEM INTEGRITY...</div>
+    <div class="boot-line ok"  style="animation-delay:0.9s">✔ NEURAL INFERENCE ENGINE — LOADED</div>
+    <div class="boot-line ok"  style="animation-delay:1.1s">✔ Version v1.0.0 — ACTIVE</div>
+    <div class="boot-line ok"  style="animation-delay:1.3s">✔ TARGET ACQUISITION SYSTEM — READY</div>
+    <div class="boot-line warn"style="animation-delay:1.5s">⚠ CLASSIFICATION DB — 5 CLASSES LOADED</div>
+    <div class="boot-line dim" style="animation-delay:1.7s">LAUNCHING AEROVISION v1.0.0...</div>
+    <div class="boot-bar-wrap">
+      <div class="boot-bar"></div>
+    </div>
+    <div class="boot-line ok"  style="animation-delay:3.0s">✔ SYSTEM READY</div>
+  </div>
+
   <!-- HUD corners -->
   <div class="hud-corner tl"></div>
   <div class="hud-corner tr"></div>
