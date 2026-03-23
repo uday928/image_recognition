@@ -14,7 +14,7 @@
   --panel: #080e18;
   --border: rgba(0, 245, 255, 0.12);
   --border-bright: rgba(0, 245, 255, 0.5);
-  --text: #c8d8e8;
+  --text: #e0e0e0;
   --dim: #4a6070;
 }
 
@@ -457,8 +457,8 @@ h1 {
 }
 
 .about-text {
-  font-size: 0.88rem;
-  color: var(--dim);
+  font-size: 0.93rem;
+  color: var(--text);
   line-height: 1.8;
   border-left: 2px solid rgba(0, 245, 255, 0.2);
   padding-left: 14px;

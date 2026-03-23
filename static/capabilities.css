@@ -14,9 +14,8 @@
   --bg: #040810;
   --panel: #070d18;
   --border: rgba(0, 245, 255, 0.1);
-  --border-b: rgba(0, 245, 255, 0.22);
   --text: #b8ccd8;
-  --dim: #3a5060;
+  --dim: #7299b3;
 }
 
 html,
@@ -295,20 +294,20 @@ nav {
 }
 .model-cell-label {
   font-family: "Share Tech Mono", monospace;
-  font-size: 0.58rem;
-  letter-spacing: 3px;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
   color: var(--dim);
   margin-bottom: 8px;
 }
 .model-cell-val {
   font-family: "Orbitron", monospace;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--cyan);
   letter-spacing: 1px;
 }
 .model-cell-sub {
-  font-size: 0.82rem;
+  font-size: 1rem;
   color: var(--text);
   margin-top: 5px;
   line-height: 1.5;
@@ -357,17 +356,17 @@ nav {
 }
 .why-num {
   font-family: "Orbitron", monospace;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   color: var(--dim);
   letter-spacing: 2px;
   margin-bottom: 10px;
 }
 .why-title {
   font-family: "Orbitron", monospace;
-  font-size: 0.75rem;
+  font-size: 0.83rem;
   font-weight: 700;
   color: var(--cyan);
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   margin-bottom: 8px;
 }
 .why-card.g .why-title {
@@ -377,7 +376,7 @@ nav {
   color: var(--amber);
 }
 .why-desc {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--dim);
   line-height: 1.7;
 }
@@ -484,7 +483,7 @@ nav {
   content: "";
   position: absolute;
   background: var(--cyan);
-  opacity: 0.5;
+  opacity: 1;
 }
 .jet-bracket::before {
   width: 100%;
@@ -574,46 +573,11 @@ nav {
 }
 .metric-key {
   font-family: "Share Tech Mono", monospace;
-  font-size: 0.6rem;
-  letter-spacing: 2px;
-  color: var(--dim);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: var(--text);
   display: block;
   margin-top: 6px;
-}
-
-/* Per-class accuracy bars */
-.class-bars {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-bottom: 48px;
-}
-.class-row {
-  display: grid;
-  grid-template-columns: 80px 1fr 52px;
-  align-items: center;
-  gap: 14px;
-}
-.class-lbl {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 0.7rem;
-  color: var(--dim);
-  text-align: right;
-}
-.class-track {
-  height: 10px;
-  background: rgba(255, 255, 255, 0.04);
-  position: relative;
-  overflow: hidden;
-}
-.class-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--cyan), var(--green));
-}
-.class-pct {
-  font-family: "Share Tech Mono", monospace;
-  font-size: 0.68rem;
-  color: var(--cyan);
 }
 
 /* ── CHART IMAGES ── */
@@ -632,8 +596,8 @@ nav {
   padding: 12px 18px;
   border-bottom: 1px solid var(--border);
   font-family: "Share Tech Mono", monospace;
-  font-size: 0.62rem;
-  letter-spacing: 3px;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
   color: var(--cyan);
   display: flex;
   align-items: center;
@@ -647,13 +611,118 @@ nav {
   border-radius: 50%;
   box-shadow: 0 0 6px var(--cyan);
 }
-.chart-wrap img {
-  width: 100%;
-  display: block;
-}
-.chart-wrap.full {
-  grid-column: 1 / -1;
-}
+
+/* Graph */
+
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600&family=Share+Tech+Mono&display=swap');
+
+  #aerovision-wrap {
+    background: #050c18;
+    border: 1px solid #0d2a45;
+    border-radius: 4px;
+    padding: 28px 24px 20px;
+    font-family: 'Rajdhani', sans-serif;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 48px;
+  }
+
+  #aerovision-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(0,180,255,0.03) 39px, rgba(0,180,255,0.03) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(0,180,255,0.025) 79px, rgba(0,180,255,0.025) 80px);
+    pointer-events: none;
+  }
+
+  .av-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .av-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #00c8ff;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .av-subtitle {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 13px;
+    color: #1e6a8a;
+    letter-spacing: 1.5px;
+    margin-bottom: 18px;
+  }
+
+  .av-charts-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .av-chart-panel {
+    background: rgba(0,20,40,0.6);
+    border: 1px solid rgba(0,140,200,0.15);
+    border-radius: 2px;
+    padding: 16px 12px 10px;
+    position: relative;
+  }
+
+  .av-chart-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #00c8ff 40%, #00c8ff 60%, transparent);
+    opacity: 0.5;
+  }
+
+  .av-panel-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: #0090c0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .av-legend {
+    display: flex;
+    gap: 14px;
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(0,100,160,0.2);
+  }
+
+  .av-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: #4a8fa8;
+    letter-spacing: 1px;
+  }
+
+  .av-dot {
+    width: 18px;
+    height: 2px;
+    border-radius: 1px;
+  }
+
+  .av-phase-note {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,220,80,0.5);
+    letter-spacing: 1px;
+  }
 
 /* Observation cards */
 .obs-grid {
@@ -678,7 +747,7 @@ nav {
 }
 .obs-head {
   font-family: "Orbitron", monospace;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--cyan);
   letter-spacing: 2px;
@@ -694,8 +763,8 @@ nav {
   color: var(--green);
 }
 .obs-body {
-  font-size: 0.88rem;
-  color: var(--dim);
+  font-size: 0.9rem;
+  color: var(--text);
   line-height: 1.75;
 }
 .obs-body strong {
@@ -713,7 +782,7 @@ nav {
   width: 100%;
   border-collapse: collapse;
   font-family: "Share Tech Mono", monospace;
-  font-size: 0.72rem;
+  font-size: 0.8rem;
   margin-top: 24px;
 }
 .conf-table th {
@@ -722,7 +791,7 @@ nav {
   border-bottom: 1px solid var(--border-b);
   color: var(--cyan);
   letter-spacing: 2px;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 .conf-table td {
   padding: 10px 16px;
@@ -735,7 +804,7 @@ nav {
 .badge {
   display: inline-block;
   padding: 2px 8px;
-  font-size: 0.58rem;
+  font-size: 0.7rem;
   border-radius: 2px;
   letter-spacing: 1px;
 }

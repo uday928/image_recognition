@@ -15,7 +15,7 @@
   --panel: #070d18;
   --border: rgba(0, 245, 255, 0.1);
   --text: #b8ccd8;
-  --dim: #5b7180;
+  --dim: #7299b3;
 }
 
 html,
@@ -188,11 +188,11 @@ nav {
   display: flex;
   gap: 36px;
   font-family: "Share Tech Mono", monospace;
-  font-size: 0.68rem;
-  letter-spacing: 2px;
+  font-size: 0.90rem;
+  letter-spacing: 1px;
 }
 .nav-links a {
-  color: var(--dim);
+  color: var(--text);
   text-decoration: none;
   transition: color 0.2s;
   position: relative;
@@ -338,12 +338,12 @@ nav {
 /* Glitch flicker on title */
 .hero-title span {
   color: var(--cyan);
-  text-shadow:
-    0 0 10px rgba(0, 245, 255, 0.9),
-    0 0 40px rgba(0, 245, 255, 0.4);
-  animation: glitch 6s ease-in-out 5s infinite;
+  /* text-shadow:
+    0 0 2px rgba(0, 245, 255, 0.9),
+    0 0 7px rgba(0, 245, 255, 0.4); */
+  /* animation: glitch 6s ease-in-out 5s infinite; */
 }
-@keyframes glitch {
+/* @keyframes glitch {
   0%,
   92%,
   100% {
@@ -370,7 +370,7 @@ nav {
       0 0 40px rgba(0, 245, 255, 0.4);
     transform: none;
   }
-}
+} */
 
 .hero-sub {
   font-size: 1.3rem;
@@ -499,8 +499,8 @@ nav {
 }
 .stat-key {
   font-family: "Share Tech Mono", monospace;
-  font-size: 0.6rem;
-  letter-spacing: 2px;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
   color: var(--dim);
   display: block;
   margin-top: 4px;
@@ -569,7 +569,7 @@ nav {
 
 .feature-num {
   font-family: "Orbitron", monospace;
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   color: var(--dim);
   letter-spacing: 3px;
   margin-bottom: 20px;
@@ -591,7 +591,7 @@ nav {
 }
 
 .feature-desc {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   color: var(--dim);
   line-height: 1.7;
 }

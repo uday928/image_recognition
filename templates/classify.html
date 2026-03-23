@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fighter Jet Classifier</title>
+  <title>CLASSIFIER MODEL</title>
+    <link rel="shortcut icon" href="/static/Jet_logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../static/style.css">
@@ -36,7 +37,7 @@
        ═══════════════════════════════════════════════════════════════════════════════════════ -->
   <header>
     <div>
-      <h1>AERO-VISION</h1>
+      <h1>AEROVISION</h1>
     </div>
     <div class="header-right">
       <a href="/" style="color: var(--cyan); text-decoration: none; margin-right: 20px; font-size: 0.7rem; letter-spacing: 2px; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">← BACK TO HOME</a>
@@ -235,8 +236,8 @@
               ['Role',         infoData.role],
               ['Max Speed',    infoData.max_speed],
               ['Engine',       infoData.engine_type],
-              ['First Flight', infoData.first_flight],
-              ['Introduced',   infoData.introduced],
+              ['Introduced', infoData.first_flight],
+              ['First Flight',   infoData.introduced],
             ];
 
             document.getElementById('info-grid').innerHTML = fields.map(([k, v]) => `
