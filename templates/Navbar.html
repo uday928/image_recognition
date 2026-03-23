@@ -1,25 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- <title>Document</title> -->
-    <!-- <link rel="stylesheet" href="../static/home.css"> -->
-</head>
-<body>
-      <nav>
-    <a class="nav-logo" href="#">
-      <span class="nav-title">AERO-VISION</span>
-    </a>
+    <link rel="stylesheet" href="../static/home.css">
+  </head>
+  <body>
+    <nav>
+      <a class="nav-logo" href="#">
+        <span class="nav-title">AERO-VISION</span>
+      </a>
 
-    <div class="nav-links">
+      <div class="nav-links">
+        <a href="/">HOME</a>
+        <a href="/capabilities">CAPABILITIES</a>
+        <a href="/about-us">ABOUT</a>
+        <a href="/documents">DOCS</a>
+      </div>
+
+      <div class="nav-badge">v1.0.0</div>
+      <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+    <div class="mobile-menu" id="mobile-menu">
       <a href="/">HOME</a>
       <a href="/capabilities">CAPABILITIES</a>
       <a href="/about-us">ABOUT</a>
       <a href="/documents">DOCS</a>
     </div>
+  </body>
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobile-menu");
+      const btn = document.getElementById("hamburger");
+      const isOpen = menu.classList.contains("open");
+      menu.classList.toggle("open");
+      btn.classList.toggle("open");
+      // Close when clicking outside
+      if (!isOpen) {
+        document.addEventListener("click", closeOnOutside);
+      }
+    }
 
-    <div class="nav-badge">v1.0.0</div>
-  </nav>
-</body>
+    function closeOnOutside(e) {
+      const menu = document.getElementById("mobile-menu");
+      const btn = document.getElementById("hamburger");
+      if (!menu.contains(e.target) && !btn.contains(e.target)) {
+        menu.classList.remove("open");
+        btn.classList.remove("open");
+        document.removeEventListener("click", closeOnOutside);
+      }
+    }
+
+    // Close on nav link click
+    document.querySelectorAll(".mobile-menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        document.getElementById("mobile-menu").classList.remove("open");
+        document.getElementById("hamburger").classList.remove("open");
+      });
+    });
+  </script>
 </html>
