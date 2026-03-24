@@ -335,7 +335,7 @@ The `Output_Images/` folder contains sample prediction outputs from the trained 
 ![Rafale Output](Output_Images/Rafale_OP.png)
 
 ### Sukhoi Su-57 Classification Output
-![Su-57 Output](Output_Images/SU57_OP.png)
+![Su-57 Output](Output_Images/Su57_OP.png)
 
 These images showcase the model's prediction confidence scores and visual results for each aircraft class, demonstrating how the system presents classification results to users.
 
