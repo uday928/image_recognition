@@ -189,7 +189,7 @@ data/Fighter_jet_final_data/
 
 1. **Clone or Download the Project**
    ```bash
-   cd path/to/The_Jet_Project
+   git clone https://github.com/uday928/image_recognition.git
    ```
 
 2. **Create Virtual Environment**
