@@ -323,19 +323,7 @@ Developed as part of an AI/ML learning project focused on computer vision and de
 
 ## Model Output Examples
 
-The `Output_Images/` folder contains sample prediction outputs from the trained model, demonstrating the classification results for different fighter jets:
 
-### B-2 Spirit Classification Output
-![B-2 Spirit Output](Output_Images/B2_OP.png)
-
-### Chengdu J-20 Classification Output
-![J-20 Output](Output_Images/J20_OP.png)
-
-### Dassault Rafale Classification Output
-![Rafale Output](Output_Images/Rafale_OP.png)
-
-### Sukhoi Su-57 Classification Output
-![Su-57 Output](Output_Images/Su57_OP.png)
 
 These images showcase the model's prediction confidence scores and visual results for each aircraft class, demonstrating how the system presents classification results to users.
 
