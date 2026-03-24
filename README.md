@@ -1,4 +1,4 @@
-# AEROVISION 🛩️
+# AEROVISION
 
 **Data-driven Fighter Jet Classification System**
 
@@ -6,7 +6,7 @@ AEROVISION is a deep learning-based web application that identifies and classifi
 
 ---
 
-## 📋 Project Overview
+## Project Overview
 
 AEROVISION leverages transfer learning and convolutional neural networks to classify fighter jets into 5 distinct classes:
 
@@ -20,7 +20,7 @@ The system provides instant classification results along with confidence scores 
 
 ---
 
-## 🚀 Technology Stack
+## Technology Stack
 
 ### Backend & Machine Learning
 - **Flask** - Web framework for serving the application
@@ -57,7 +57,7 @@ The system provides instant classification results along with confidence scores 
 
 ---
 
-## 🗺️ Site Map
+## Site Map
 
 The application features a comprehensive multi-page interface:
 
@@ -98,7 +98,7 @@ The application features a comprehensive multi-page interface:
 
 ---
 
-## 📊 Dataset & Training Details
+## Dataset & Training Details
 
 ### Dataset Structure
 ```
@@ -141,7 +141,7 @@ data/Fighter_jet_final_data/
 
 ---
 
-## ⚠️ Known Limitations & Weak Points
+## Known Limitations & Weak Points
 
 ### 1. **Limited Training Data**
    - Model trained on only **350 training images** (70 per class)
@@ -178,7 +178,7 @@ data/Fighter_jet_final_data/
 
 ---
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 
 ### Prerequisites
 - Python 3.8 - 3.12
@@ -243,7 +243,7 @@ The Flask app runs in debug mode by default (see `app.py`).
 
 ---
 
-## 🔧 API Endpoints
+## API Endpoints
 
 ### `GET /`
 - **Description**: Home page
@@ -294,7 +294,7 @@ The Flask app runs in debug mode by default (see `app.py`).
 
 ---
 
-## 📈 Future Improvements
+## Future Improvements
 
 - Expand dataset with more diverse images (different angles, weather conditions, backgrounds)
 - Implement "unknown" class detection for non-jet images
@@ -308,19 +308,19 @@ The Flask app runs in debug mode by default (see `app.py`).
 
 ---
 
-## 📄 License
+## License
 
 This project is for educational and research purposes.
 
 ---
 
-## 👥 Contributors
+## Contributors
 
 Developed as part of an AI/ML learning project focused on computer vision and deep learning applications.
 
 ---
 
-## 📸 Model Output Examples
+## Model Output Examples
 
 The `Output_Images/` folder contains sample prediction outputs from the trained model, demonstrating the classification results for different fighter jets:
 
@@ -333,4 +333,4 @@ These images showcase the model's prediction confidence scores and visual result
 
 ---
 
-**AEROVISION** - Bringing AI-powered aircraft recognition to your fingertips! ✈️🚀
+**AEROVISION** - From image to aircraft.
